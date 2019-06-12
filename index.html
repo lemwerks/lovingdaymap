@@ -21,7 +21,13 @@
     }
 
     #sliderbar {
-      position:  absolute;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #sliderbar input {
+      display: inline-block;
+      width: 80vw;
     }
 
   </style>
@@ -31,16 +37,19 @@
 <div id='map-container'>
   <div id='map'></div>
 </div>
-
 <div class='session' id='sliderbar'>
-  <h2>Year: <label id='active-year'></label></h2>
-  <input id='slider' class='row' type='range' min='1776' max='1968' step='1' value='1776' />
+  <p>Year: <label id='active-year'></label></p>
+  <span>
+    <span>1776</span>
+    <input id='slider' type='range' min='1776' max='1968' step='1' value='1776' />
+    <span>1968</span>
+  </span>
 </div>
 
 
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibGVtd2Vya3MiLCJhIjoiY2p1ZTRoYnd1MGxpNTQ0cjE0Mjl1cHRrYiJ9.kU435578KS5vrCHNwZX2kA';
-const map = new mapboxg.Map({
+const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/lemwerks/cjups06uh0cr51flc468wbj0s',
   center: [-95.733562, 38.871847],
@@ -50,10 +59,16 @@ const map = new mapboxg.Map({
   ]
 });
 
+map.on('load', function(loaded) {
+  map.setFilter('lovingday', ['<=', ['number', ['get', 'lovingday']], 1776]);
+  sliderLabel.innerText = '1776'
+});
+
 const slider = document.getElementById('slider');
 const sliderLabel = document.getElementById('active-year');
 slider.addEventListener('input', function(e) {
   const year = parseInt(slider.value);
+  console.log(year)
   map.setFilter('lovingday', ['<=', ['number', ['get', 'lovingday']], year]);
   sliderLabel.innerText = year;
 });
