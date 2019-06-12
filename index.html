@@ -2,26 +2,113 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>Display a map</title>
+  <title>Loving Day Map</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/css?family=Lora:700|Oxygen:300,400,700&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    #map-container {
+      width: 100vw;
+      height: 50vw;
+    }
+
+    #sliderbar {
+      text-align: center;
+      padding: 10px;
+    }
+
+    #sliderbar input {
+      display: inline-block;
+      width: 80vw;
+    }
+
+    .content {
+      width: 80vw;
+      padding: 10px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Lora', serif;
+    }
+
+    .is-centered {
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
 
-<div id='map'></div>
+<div>
+  <div class="content is-centered">
+    <h1>Loving Day Map</h1>
+    <p></p>
+  </div>
+</div>
+<div id='map-container'>
+  <div id='map'></div>
+</div>
+<div class='session is-centered' id='sliderbar'>
+  <p>Year: <label id='active-year'></label></p>
+  <span>
+    <span>1776</span>
+    <input id='slider' type='range' min='1776' max='1968' step='1' value='1776' />
+    <span>1968</span>
+  </span>
+  <p><em>Drag the slider to watch states legalize interracial marriage over time.</em></p>
+</div>
+<div>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus nullam eget felis eget nunc. Quam quisque id diam vel quam. Tempus quam pellentesque nec nam aliquam sem et. Sit amet commodo nulla facilisi nullam. Id aliquet lectus proin nibh nisl condimentum. Pretium aenean pharetra magna ac placerat vestibulum. Dui faucibus in ornare quam viverra orci. Et ultrices neque ornare aenean euismod elementum. Integer eget aliquet nibh praesent tristique magna sit amet purus. Molestie at elementum eu facilisis sed odio morbi. Tellus at urna condimentum mattis pellentesque id. Pretium aenean pharetra magna ac placerat. Velit euismod in pellentesque massa.</p>
+    <p>Egestas dui id ornare arcu. Cras semper auctor neque vitae tempus. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Venenatis lectus magna fringilla urna porttitor. Nec dui nunc mattis enim ut tellus. Eget duis at tellus at. Egestas integer eget aliquet nibh praesent tristique magna sit. Habitant morbi tristique senectus et netus et malesuada fames ac. Sem integer vitae justo eget magna fermentum iaculis eu non. Ac odio tempor orci dapibus ultrices in. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.</p>
+    <p>Sed faucibus turpis in eu mi bibendum neque egestas. Sed turpis tincidunt id aliquet risus feugiat. Tellus in metus vulputate eu scelerisque. Bibendum enim facilisis gravida neque convallis a. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu. Et netus et malesuada fames. Quam quisque id diam vel quam. Tortor id aliquet lectus proin nibh nisl. Nulla at volutpat diam ut venenatis tellus in metus. Aliquet bibendum enim facilisis gravida neque.</p>
+    <p class="is-centered">Created with ❤️ at Code for DC by:<br>Vinesh Kannan, Courtney Brousseau, Connor Browne, Ning Chi, Shuxi Lian, Alex Curtis, Lem Thornton III</p>
+
+  </div>
+</div>
+
+
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibGVtd2Vya3MiLCJhIjoiY2p1ZTRoYnd1MGxpNTQ0cjE0Mjl1cHRrYiJ9.kU435578KS5vrCHNwZX2kA';
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/lemwerks/cjups06uh0cr51flc468wbj0s',
-  center: [11.000000, 42.000000],
-  zoom: 3.0
+  center: [-95.733562, 38.871847],
+  maxBounds: [
+    [-140, 20],
+    [-50, 50]
+  ],
+  interactive: false
 });
+
+map.on('load', function(loaded) {
+  map.setFilter('lovingday', ['<=', ['number', ['get', 'lovingday']], 1776]);
+  sliderLabel.innerText = '1776'
+});
+
+const slider = document.getElementById('slider');
+const sliderLabel = document.getElementById('active-year');
+slider.addEventListener('input', function(e) {
+  const year = parseInt(slider.value);
+  map.setFilter('lovingday', ['<=', ['number', ['get', 'lovingday']], year]);
+  sliderLabel.innerText = year;
+});
+// 
+
 </script>
 
 </body>
