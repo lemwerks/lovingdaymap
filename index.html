@@ -4,51 +4,42 @@
   <meta charset='utf-8' />
   <title>Loving Day Map</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
   <link href="https://fonts.googleapis.com/css?family=Lora:700|Oxygen:300,400,700&display=swap" rel="stylesheet">
   <style>
-
     body {
       margin: 0;
       padding: 0;
       font-family: 'Oxygen', sans-serif;
     }
-
     #map {
       width: 100%;
       height: 100%;
     }
-
     #map-container {
       width: 100vw;
       height: 50vw;
     }
-
     #sliderbar {
       text-align: center;
       padding: 10px;
     }
-
     #sliderbar input {
       display: inline-block;
       width: 75vw;
     }
-
     .content {
       width: 80vw;
       padding: 10px;
       margin: 0 auto;
     }
-
     h1, h2, h3 {
       font-family: 'Lora', serif;
     }
-
     .is-centered {
       text-align: center;
     }
-
   </style>
 </head>
 <body>
@@ -69,15 +60,31 @@
     <input id='slider' type='range' min='1776' max='1968' step='1' value='1776' />
     <span>1968</span>
   </span>
-  <p><em>Drag the slider to watch states legalize interracial marriage over time.</em></p>
+  <p><em>Drag the slider to see when states allowed interracial marriage.</em></p>
 </div>
 <div>
   <div class="content">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus nullam eget felis eget nunc. Quam quisque id diam vel quam. Tempus quam pellentesque nec nam aliquam sem et. Sit amet commodo nulla facilisi nullam. Id aliquet lectus proin nibh nisl condimentum. Pretium aenean pharetra magna ac placerat vestibulum. Dui faucibus in ornare quam viverra orci. Et ultrices neque ornare aenean euismod elementum. Integer eget aliquet nibh praesent tristique magna sit amet purus. Molestie at elementum eu facilisis sed odio morbi. Tellus at urna condimentum mattis pellentesque id. Pretium aenean pharetra magna ac placerat. Velit euismod in pellentesque massa.</p>
-    <p>Egestas dui id ornare arcu. Cras semper auctor neque vitae tempus. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Venenatis lectus magna fringilla urna porttitor. Nec dui nunc mattis enim ut tellus. Eget duis at tellus at. Egestas integer eget aliquet nibh praesent tristique magna sit. Habitant morbi tristique senectus et netus et malesuada fames ac. Sem integer vitae justo eget magna fermentum iaculis eu non. Ac odio tempor orci dapibus ultrices in. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin.</p>
-    <p>Sed faucibus turpis in eu mi bibendum neque egestas. Sed turpis tincidunt id aliquet risus feugiat. Tellus in metus vulputate eu scelerisque. Bibendum enim facilisis gravida neque convallis a. Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu. Et netus et malesuada fames. Quam quisque id diam vel quam. Tortor id aliquet lectus proin nibh nisl. Nulla at volutpat diam ut venenatis tellus in metus. Aliquet bibendum enim facilisis gravida neque.</p>
-    <p class="is-centered">Created with ❤️ at Code for DC by:<br>Vinesh Kannan, Courtney Brousseau, Connor Browne, Ning Chi, Shuxi Lian, Alex Curtis, Lem Thornton III</p>
-    <p class="is-centered">You can view the <a href="https://github.com/lemwerks/lovingdaymap" target="blank">source code</a> for this project on GitHub.</p>
+    <p>
+      Loving Day is celebrated on June 12 of every year and marks the day the Supreme Court made a ruling in the case of <i><a href="https://www.encyclopediavirginia.org/Loving_v_Virginia_1967" target="new">Loving v. Virginia</a></i>
+       in 1967. This ruling brought down any laws that made it illegal for people of two different races to marry. It's grown from a quietly celebrated day among those in the know, to a full on call
+      <a href="http://www.lovingday.org/" target="new">for celebration</a> and in 2016 it was made into an award winning film, <i><a href="http://www.focusfeatures.com/loving" target="new">Loving</a></i>.</p>
+    <p>
+      Up until this point it was illegal for a mixed-race couple to marry. Mildred and Richard Loving were oftens spereated and forced to spend time apart in jail. Eventually they
+      found themselves in Washington, DC which did accept their relationship. Prior to 1967 several states had began overturning bans that prevented couples from marrying (and some states
+      had no bans), but it wasn't until the Supreme Court made their ruling that it was federally seen as illegal.</p>
+    <p>
+      The implication of the verdict has had a lasting impact. In 1967 only 3% of newlyweds in the US were mixed race marriages, and in 2015 17% (one in six) newlyweds were married to someone of a different race.
+      The ruling from <i>Loving v. Virginia</i> was also cited as the basis of the 2015 case, <i>Obergefell v. Hodges</i> making same sex marriages legal.
+    </p>
+    <p>
+      So why make this map? It was something of a pet project and idea of mine. To just see this story told on a map. As a mixed kid, I find it fascinating that both of my parents were born in a time when the idea of
+      them having married and had three kids would have been a crime. It's important to me as well to see that changes like this take time and for the user to feel that when interacting, and how the slider takes time to
+      move from 1780 to 1843 to see some changes.
+
+    <p> Major shout out to the Code for DC crew for helping me see this project come to life!</p>
+    </p>
+    <p class="is-centered"><small>Created with ❤️ at <a href"https://codefordc.org/">Code for DC</a> by:<br>Courtney Brousseau, Connor Browne, Ning Chi, Alex Curtis, Vinesh Kannan, Shuxi Lian, and Lemuel H. Thornton III</small></p>
+    <p class="is-centered"><small>You can view the <a href="https://github.com/lemwerks/lovingdaymap" target="blank">source code</a> for this project on GitHub.</small></p>
   </div>
 </div>
 
@@ -86,7 +93,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoibGVtd2Vya3MiLCJhIjoiY2p1ZTRoYnd1MGxpNTQ0cjE0Mjl1cHRrYiJ9.kU435578KS5vrCHNwZX2kA';
 const map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/lemwerks/cjups06uh0cr51flc468wbj0s',
+  style: 'mapbox://styles/lemwerks/cjwsozto41gzg1cmjx6dskna3',
   center: [-95.733562, 38.871847],
   maxBounds: [
     [-140, 20],
@@ -94,12 +101,10 @@ const map = new mapboxgl.Map({
   ],
   interactive: false
 });
-
 map.on('load', function(loaded) {
   map.setFilter('lovingday', ['<=', ['number', ['get', 'lovingday']], 1776]);
   sliderLabel.innerText = '1776'
 });
-
 const slider = document.getElementById('slider');
 const sliderLabel = document.getElementById('active-year');
 slider.addEventListener('input', function(e) {
@@ -107,8 +112,7 @@ slider.addEventListener('input', function(e) {
   map.setFilter('lovingday', ['<=', ['number', ['get', 'lovingday']], year]);
   sliderLabel.innerText = year;
 });
-// 
-
+//
 </script>
 
 </body>
